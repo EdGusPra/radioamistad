@@ -10,7 +10,7 @@ import {switchMap} from 'rxjs/operators'
   providedIn: 'root'
 })
 export class IpService implements OnInit {
-
+private info :any;
 constructor(private _http:HttpClient) { }
 ngOnInit(){
    
@@ -26,6 +26,11 @@ loadIp():Observable<Info> {
       })
       
     );
+  }
+
+  loadTemp(city:string){
+
+    return this._http.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=11f1f36cb33ec1d1289c8e3d869cbb27&lang=es&units=metric`)
   }
 
 

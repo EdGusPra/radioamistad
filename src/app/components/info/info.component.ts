@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfoComponent implements OnInit {
   public info: any;
+  public temp:any;
   public title = 'Radiodeleyenda';
   constructor(private http: IpService) {}
 
@@ -16,5 +17,7 @@ export class InfoComponent implements OnInit {
       this.info = value;
       console.log(value);
     });
+    setTimeout(()=>{this.http.loadTemp(this.info?.city).subscribe((value: any) => {console.log(value)
+    this.temp=value;})},700)
   }
 }
