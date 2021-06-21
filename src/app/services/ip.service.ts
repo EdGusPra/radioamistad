@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import {switchMap} from 'rxjs/operators'
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -12,6 +13,8 @@ import {switchMap} from 'rxjs/operators'
 export class IpService implements OnInit {
 private info :any;
 constructor(private _http:HttpClient) { }
+private token = environment.token_weather;
+private ipStack_tokem= environment.ipStack_token;
 ngOnInit(){
    
 }
@@ -21,7 +24,7 @@ loadIp():Observable<Info> {
     .pipe(
       switchMap((value: any) => {
         
-        let url = `http://api.ipstack.com/${value.ip}?access_key=d74a6ceecfc9893d27e9319eb2183e04`;
+        let url = `http://api.ipstack.com/${value.ip}?access_key=${this.ipStack_tokem}`;
         return this._http.get<Info>(url);
       })
       
@@ -30,7 +33,7 @@ loadIp():Observable<Info> {
 
   loadTemp(city:string){
 
-    return this._http.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=11f1f36cb33ec1d1289c8e3d869cbb27&lang=es&units=metric`)
+    return this._http.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${this.token}&lang=es&units=metric`)
   }
 
 

@@ -18,6 +18,6 @@ export class InfoComponent implements OnInit {
       console.log(value);
     });
     setTimeout(()=>{this.http.loadTemp(this.info?.city).subscribe((value: any) => {console.log(value)
-    this.temp=value;})},700)
+    this.temp=value;})},1000)
   }
 }
