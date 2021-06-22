@@ -4,17 +4,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
-import { InfoComponent } from './components/info/info.component'
+import { InfoComponent } from './components/info/info.component';
+import { LoadingComponent } from './components/loading/loading.component'
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    InfoComponent
+    InfoComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
+
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

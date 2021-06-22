@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class InfoComponent implements OnInit {
   public info: any;
   public temp:any;
-  public title = 'Radiodeleyenda';
+  // public title = 'Radiodeleyenda';
   constructor(private http: IpService) {}
 
   ngOnInit(): void {
